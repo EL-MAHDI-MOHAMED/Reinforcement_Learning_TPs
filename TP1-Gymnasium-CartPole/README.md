@@ -1,44 +1,48 @@
-# CartPole-v1 Reinforcement Learning Experiments
+# 🎮 CartPole-v1 Reinforcement Learning Experiments
 
-![CartPole Environment](https://gymnasium.farama.org/_images/cart_pole.gif)
+![CartPole Simulation](https://gymnasium.farama.org/_images/cart_pole.gif)
 
-This repository contains a series of experiments with the CartPole-v1 environment from Gymnasium, demonstrating fundamental reinforcement learning concepts through practical implementations.
+*A hands-on exploration of reinforcement learning fundamentals using Gymnasium's classic control environment*
 
-## Table of Contents
-- [Environment Overview](#environment-overview)
-- [Experiments](#experiments)
-  - [Random Agent Baseline](#1-random-agent-baseline)
-  - [Action-Observation Analysis](#2-action-observation-analysis)
-  - [Manual Control](#3-manual-control)
-  - [Statistical Analysis](#4-statistical-analysis)
-- [Key Metrics](#key-metrics)
-- [Requirements](#requirements)
-- [Usage](#usage)
-- [Contributing](#contributing)
-- [License](#license)
+## 📚 Table of Contents
+- [Project Overview](#-project-overview)
+- [Environment Specifications](#-environment-specifications)
+## 🌟 Project Overview
 
-## Environment Overview
+This repository contains a series of progressively complex experiments with the CartPole-v1 environment, designed to:
+- Demonstrate core RL concepts
+- Provide hands-on coding examples
+- Establish performance benchmarks
+- Serve as a foundation for more advanced algorithms
 
-The CartPole-v1 environment features:
-- **State space**: 4 continuous values
-  - Cart position
-  - Cart velocity
-  - Pole angle
-  - Pole angular velocity
-- **Action space**: 2 discrete actions
-  - 0: Push cart to the left
-  - 1: Push cart to the right
-- **Reward**: +1 for every step the pole remains upright
-- **Termination conditions**:
-  - Pole angle > 12° from vertical
-  - Cart position > 2.4 units from center
-  - Episode length > 500 steps
+## 🏗️ Environment Specifications
 
-## Experiments
+### Observation Space
+| Index | Description        | Range          |
+|-------|-------------------|---------------|
+| 0     | Cart Position     | [-4.8, 4.8]   |
+| 1     | Cart Velocity     | (-∞, ∞)       |
+| 2     | Pole Angle        | [-24°, 24°]   |
+| 3     | Pole Velocity     | (-∞, ∞)       |
 
-### 1. Random Agent Baseline
-Demonstrates basic environment interaction with random actions:
+### Action Space
+- `0`: Push cart left
+- `1`: Push cart right
+
+### Reward System
+- +1 for every timestep the pole remains upright
+
+### Termination Conditions
+- Pole angle > ±12°
+- Cart position > ±2.4 units
+- Episode length > 500 steps (solved)
+
+## 🔍 Experiments
+
+### 1️⃣ Random Agent Baseline
 ```python
+env = gym.make("CartPole-v1")
 for _ in range(100):
     action = env.action_space.sample()
-    observation, reward, terminated, truncated, info = env.step(action)
+    obs, reward, done, _, _ = env.step(action)
+    if done: env.reset()

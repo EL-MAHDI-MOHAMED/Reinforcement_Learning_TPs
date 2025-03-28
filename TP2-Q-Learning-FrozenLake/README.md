@@ -1,35 +1,27 @@
-# TP2 - Q-Learning avec FrozenLake
+# FrozenLake-v1 Q-Learning Implementation
 
-## Description
-Ce TP explore l'algorithme de Q-Learning appliqué à l'environnement FrozenLake-v1 de Gymnasium. L'objectif est d'entraîner un agent à naviguer sur un lac gelé en évitant les trous et en atteignant la récompense finale.
+![FrozenLake Environment](https://gymnasium.farama.org/_images/frozen_lake.gif)
 
-## Prérequis
-Avant d'exécuter ce projet, assurez-vous d'avoir installé les bibliothèques nécessaires :
+## Project Overview
 
-```bash
-pip install gymnasium numpy
-```
+This implementation solves Gymnasium's FrozenLake-v1 environment using Q-Learning, demonstrating key reinforcement learning concepts. The agent learns to navigate a 4x4 frozen surface while avoiding holes to reach the goal.
 
-## Exécution
-Pour exécuter le TP, lancez le notebook avec Jupyter Notebook ou Jupyter Lab :
+## Key Features
 
-```bash
-jupyter notebook TP2.ipynb
-```
+- **Q-Learning Algorithm**: Implements the standard off-policy TD control algorithm
+- **ε-Greedy Exploration**: Balances exploration and exploitation with decay schedule
+- **Stochastic Environment**: Handles slippery surface conditions (is_slippery=True)
+- **Performance Tracking**: Logs success rates and training metrics
 
-## Structure du TP
-1. **Exploration de l'environnement FrozenLake**
-   - Affichage des espaces d'actions et d'observations
-   - Exécution d'actions aléatoires
-2. **Initialisation du Q-Learning**
-   - Définition de la table Q
-   - Paramétrage des hyperparamètres (alpha, gamma, epsilon, etc.)
-3. **Entraînement de l'agent**
-   - Implémentation de l'algorithme de Q-Learning
-   - Suivi de la convergence
-4. **Évaluation et résultats**
-   - Observation de la performance de l'agent après l'entraînement
+## Implementation Details
 
-## Auteurs
-- [EL MAHDI MOHAMED]
+The solution uses:
+- 16 discrete states (4x4 grid)
+- 4 possible actions (Left, Down, Right, Up)
+- Learning rate (α) = 0.1
+- Discount factor (γ) = 0.99
+- ε-decay from 1.0 to 0.01 over 5000 episodes
 
+```python
+# Core Q-Learning Update
+Q_table[state, action] += alpha * (reward + gamma * np.max(Q_table[next_state]) - Q_table[state, action])

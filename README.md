@@ -28,8 +28,6 @@ This repository contains implementations of reinforcement learning algorithms fo
 - [Installation](#installation)
 - [Usage](#usage)
 - [Contributing](#contributing)
-- [License](#license)
-
 ---
 
 ## 1. Taxi-v3 Projects

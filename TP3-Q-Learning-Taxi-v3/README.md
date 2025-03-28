@@ -1,35 +1,56 @@
-# TP3 - Exploration et Q-Learning avec Taxi-v3
+# Taxi-v3 Reinforcement Learning Implementations
 
-## Description
-Ce TP explore l'environnement Taxi-v3 de Gymnasium. L'objectif est d'entraîner un agent à optimiser la collecte et la dépose de passagers en utilisant un algorithme d'apprentissage par renforcement.
+![Taxi-v3 Environment](images/taxi_env.png)  
+*The Gymnasium Taxi-v3 environment showing agent (yellow), passenger (blue), and destinations (RGBY)*
 
-## Prérequis
-Avant d'exécuter ce projet, assurez-vous d'avoir installé les bibliothèques nécessaires :
+This Python file contains multiple reinforcement learning approaches for solving Gymnasium's Taxi-v3 environment, progressing from simple to more advanced techniques.
 
-```bash
-pip install gymnasium numpy
-```
+## Contents
 
-## Exécution
-Pour exécuter le TP, lancez le notebook avec Jupyter Notebook ou Jupyter Lab :
+1. **Random Agent Baseline**
+   - Takes random actions to demonstrate environment basics
+   - Runs for 100 steps with environment rendering
 
-```bash
-jupyter notebook TP3.ipynb
-```
+2. **Extended Random Agent**
+   - Runs 20 episodes with step-by-step logging
+   - Tracks and displays total reward per episode
 
-## Structure du TP
-1. **Exploration de l'environnement Taxi-v3**
-   - Initialisation de l'environnement
-   - Affichage du nombre d'états et d'actions
-   - Exécution d'actions aléatoires pour observer le comportement de l'agent
-2. **Implémentation du Q-Learning**
-   - Définition de la table Q
-   - Paramétrage des hyperparamètres (alpha, gamma, epsilon, etc.)
-   - Boucle d'entraînement de l'agent
-3. **Évaluation et résultats**
-   - Observation des performances après l'entraînement
-   - Comparaison entre actions aléatoires et Q-Learning
+3. **Basic Policy Gradient**
+   - Tabular policy implementation
+   - Discounted reward calculation
+   - Policy and value function updates
+   - 100 training episodes
 
-## Auteurs
-- [EL MAHDI MOHAMED]
+4. **Policy Evaluation**
+   - Tests the trained policy over 20 episodes
+   - Reports average and individual episode rewards
 
+5. **Proximal Policy Optimization (PPO)**
+   - Advanced policy gradient with experience replay
+   - Batch updates and advantage normalization
+   - Clipped policy updates for stability
+   - 1000 training episodes with periodic evaluation
+
+## Key Parameters
+
+| Parameter           | Value  | Description                          |
+|---------------------|--------|--------------------------------------|
+| `gamma`            | 0.99   | Discount factor                     |
+| `lr_policy`        | 0.01   | Policy learning rate                |
+| `lr_value`        | 0.1    | Value function learning rate        |
+| `clip_epsilon`    | 0.2    | PPO clipping parameter              |
+| `num_episodes`    | 100/1000 | Training episodes                  |
+| `batch_size`      | 10     | PPO batch size                      |
+
+## Usage
+
+```python
+# Run specific sections by uncommenting:
+# 1. Random agent
+# env = gym.make("Taxi-v3", render_mode="human") 
+
+# 2. Policy Gradient training
+# env = gym.make("Taxi-v3")
+
+# 3. PPO training
+# env = gym.make("Taxi-v3")

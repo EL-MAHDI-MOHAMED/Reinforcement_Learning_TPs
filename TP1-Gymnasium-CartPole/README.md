@@ -1,35 +1,44 @@
-# TP1 - Introduction à Gymnasium et CartPole
+# CartPole-v1 Reinforcement Learning Experiments
 
-## Description
+![CartPole Environment](https://gymnasium.farama.org/_images/cart_pole.gif)
 
-Ce TP explore l'utilisation de la bibliothèque Gymnasium pour interagir avec l'environnement CartPole-v1. Il permet de comprendre les concepts de base des espaces d'actions et d'observations, ainsi que la gestion d'un agent effectuant des actions aléatoires.
+This repository contains a series of experiments with the CartPole-v1 environment from Gymnasium, demonstrating fundamental reinforcement learning concepts through practical implementations.
 
-## Prérequis
+## Table of Contents
+- [Environment Overview](#environment-overview)
+- [Experiments](#experiments)
+  - [Random Agent Baseline](#1-random-agent-baseline)
+  - [Action-Observation Analysis](#2-action-observation-analysis)
+  - [Manual Control](#3-manual-control)
+  - [Statistical Analysis](#4-statistical-analysis)
+- [Key Metrics](#key-metrics)
+- [Requirements](#requirements)
+- [Usage](#usage)
+- [Contributing](#contributing)
+- [License](#license)
 
-Avant d'exécuter ce projet, assurez-vous d'avoir installé les bibliothèques nécessaires :
+## Environment Overview
 
-```bash
-pip install gymnasium
-```
+The CartPole-v1 environment features:
+- **State space**: 4 continuous values
+  - Cart position
+  - Cart velocity
+  - Pole angle
+  - Pole angular velocity
+- **Action space**: 2 discrete actions
+  - 0: Push cart to the left
+  - 1: Push cart to the right
+- **Reward**: +1 for every step the pole remains upright
+- **Termination conditions**:
+  - Pole angle > 12° from vertical
+  - Cart position > 2.4 units from center
+  - Episode length > 500 steps
 
-## Exécution
+## Experiments
 
-Pour exécuter le TP, lancez le notebook avec Jupyter Notebook ou Jupyter Lab :
-
-```bash
-jupyter notebook TP1.ipynb
-```
-
-## Structure du TP
-
-1. **Exploration de l'environnement CartPole**
-   - Affichage des espaces d'actions et d'observations
-2. **Exécution d'actions aléatoires**
-   - Boucle de 100 itérations avec actions choisies aléatoirement
-3. **Observation des récompenses**
-   - Affichage des observations et des récompenses obtenues
-
-## Auteurs
-
-- [EL MAHDI MOHAMED]
-
+### 1. Random Agent Baseline
+Demonstrates basic environment interaction with random actions:
+```python
+for _ in range(100):
+    action = env.action_space.sample()
+    observation, reward, terminated, truncated, info = env.step(action)

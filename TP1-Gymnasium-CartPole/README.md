@@ -1,13 +1,13 @@
-# 🎮 CartPole-v1 Reinforcement Learning Experiments
+#  CartPole-v1 Reinforcement Learning Experiments
 
 ![CartPole Simulation](https://gymnasium.farama.org/_images/cart_pole.gif)
 
 *A hands-on exploration of reinforcement learning fundamentals using Gymnasium's classic control environment*
 
-## 📚 Table of Contents
+##  Table of Contents
 - [Project Overview](#-project-overview)
 - [Environment Specifications](#-environment-specifications)
-## 🌟 Project Overview
+##  Project Overview
 
 This repository contains a series of progressively complex experiments with the CartPole-v1 environment, designed to:
 - Demonstrate core RL concepts
@@ -15,7 +15,7 @@ This repository contains a series of progressively complex experiments with the 
 - Establish performance benchmarks
 - Serve as a foundation for more advanced algorithms
 
-## 🏗️ Environment Specifications
+## Environment Specifications
 
 ### Observation Space
 | Index | Description        | Range          |
@@ -37,9 +37,9 @@ This repository contains a series of progressively complex experiments with the 
 - Cart position > ±2.4 units
 - Episode length > 500 steps (solved)
 
-## 🔍 Experiments
+##  Experiments
 
-### 1️⃣ Random Agent Baseline
+### Random Agent Baseline
 ```python
 env = gym.make("CartPole-v1")
 for _ in range(100):

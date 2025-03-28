@@ -1,6 +1,6 @@
 # Taxi-v3 Reinforcement Learning Implementations
 
-![CartPole Environment](https://gymnasium.farama.org/_images/taxi.gif)
+![taxi Environment](https://gymnasium.farama.org/_images/taxi.gif)
 *The Gymnasium Taxi-v3 environment showing agent (yellow), passenger (blue), and destinations (RGBY)*
 
 This Python file contains multiple reinforcement learning approaches for solving Gymnasium's Taxi-v3 environment, progressing from simple to more advanced techniques.

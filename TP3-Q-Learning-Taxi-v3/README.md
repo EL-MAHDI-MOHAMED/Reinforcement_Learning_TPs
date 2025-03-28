@@ -1,6 +1,6 @@
 # Taxi-v3 Reinforcement Learning Implementations
 
-![Taxi-v3 Environment](../images/taxi_env.png)  
+![Taxi-v3 Environment](Reinforcement_Learning_TPs\images\taxi_screenshot.png)  
 *The Gymnasium Taxi-v3 environment showing agent (yellow), passenger (blue), and destinations (RGBY)*
 
 This Python file contains multiple reinforcement learning approaches for solving Gymnasium's Taxi-v3 environment, progressing from simple to more advanced techniques.
